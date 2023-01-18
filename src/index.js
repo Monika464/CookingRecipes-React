@@ -1,19 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+//import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {ThemeProvider} from './context/ThemeContext'
-
-console.log(ThemeProvider,'ThemeProvider')
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { ThemeContext} from './context/ThemeContext'
 
 
-root.render(
+ReactDOM.render(
   <React.StrictMode>
-
-    <App />
-
-
-  </React.StrictMode>
+  <ThemeContext.Provider value={{color: 'blue'}}>
+      <App />
+  </ThemeContext.Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
+
